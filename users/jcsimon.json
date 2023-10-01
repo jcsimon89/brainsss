@@ -1,6 +1,6 @@
 {
     "imports_path": "/oak/stanford/groups/trc/data/Jacob/ImagingData/Bruker/brainsss_imports",
-    "dataset_path": "/oak/stanford/groups/trc/data/Jacob/ImagingData/Bruker/brainsss/wb_gcamp8s_rcgull",
+    "dataset_path": "/oak/stanford/groups/trc/data/Jacob/ImagingData/Bruker/brainsss/wb_gflamp1_jrgeco1a",
     "fictrac_qc": "True",
     "stim_triggered_beh": "",
     "bleaching_qc": "True",
@@ -10,7 +10,7 @@
     "zscore": "True",
     "highpass": "True",
     "correlation": "",
-    "STA": "True",
+    "STA": "",
     "h5_to_nii": "True",
     "clean_anat": "True",
     "func2anat": "True",
