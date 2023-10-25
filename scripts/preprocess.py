@@ -51,6 +51,9 @@ def main(args):
     ### Parse user settings
     imports_path = args['IMPORTDIR']
     dataset_path = args['DATADIR']
+    struct_ch = args['STRCH']
+    func_ch = args['FUNCH']
+
     if build_flies:
         fictrac_qc = brainsss.parse_true_false(settings.get('fictrac_qc',False))
         stim_triggered_beh = brainsss.parse_true_false(settings.get('stim_triggered_beh',False))

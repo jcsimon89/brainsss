@@ -19,6 +19,16 @@ while [[ $# -gt 0 ]]; do
       shift
       shift
       ;;
+    -funch|--functionalchannel)
+      FUNCH="$2"
+      shift
+      shift
+      ;;      
+    -strch|--structuralchannel)
+      STRCH="$2"
+      shift
+      shift
+      ;;
     -b|--build_flies)
       BUILDFLIES="$2"
       shift
@@ -121,7 +131,7 @@ while [[ $# -gt 0 ]]; do
   esac
 done
 
-ARGS="{\"PWD\":\"$PWD\",\"DATADIR\":\"$DATADIR\",\"IMPORTDIR\":\"$IMPORTDIR\",\"BUILDFLIES\":\"$BUILDFLIES\",\"FLIES\":\"$FLIES\",\"DIRTYPE\":\"$DIRTYPE\",\
+ARGS="{\"PWD\":\"$PWD\",\"FUNCH\":\"$FUNCH\",\"STRCH\":\"$STRCH\",\"DATADIR\":\"$DATADIR\",\"IMPORTDIR\":\"$IMPORTDIR\",\"BUILDFLIES\":\"$BUILDFLIES\",\"FLIES\":\"$FLIES\",\"DIRTYPE\":\"$DIRTYPE\",\
 \"MOCO\":\"$MOCO\",\"ZSCORE\":\"$ZSCORE\",\"HIGHPASS\":\"$HIGHPASS\",\"CORRELATION\":\"$CORRELATION\",\
 \"FICTRAC_QC\":\"$FICTRAC_QC\",\"STB\":\"$STB\",\"BLEACHING_QC\":\"$BLEACHING_QC\",\
 \"TEMPORAL_MEAN_BRAIN_PRE\":\"$TEMPORAL_MEAN_BRAIN_PRE\",\"STA\":\"$STA\",\"H5_TO_NII\":\"$H5_TO_NII\",\
