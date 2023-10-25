@@ -327,11 +327,11 @@ def main(args):
 
             directory = os.path.join(funcanat, 'imaging')
             if dirtype == 'func':
-                brain_master = 'functional_channel_1.nii'
-                brain_mirror = 'functional_channel_2.nii'
+                brain_master = 'functional_channel_2.nii'
+                brain_mirror = 'functional_channel_1.nii'
             if dirtype == 'anat':
-                brain_master = 'anatomy_channel_1.nii'
-                brain_mirror = 'anatomy_channel_2.nii'
+                brain_master = 'anatomy_channel_2.nii'
+                brain_mirror = 'anatomy_channel_1.nii'
 
             args = {'logfile': logfile,
                     'directory': directory,
