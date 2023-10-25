@@ -9,7 +9,7 @@
 
 while [[ $# -gt 0 ]]; do
   case $1 in
-    -datadirectory|--datadirectory)
+    -datadir|--datadirectory)
       DATADIR="$2"
       shift
       shift
