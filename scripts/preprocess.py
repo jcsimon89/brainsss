@@ -520,7 +520,7 @@ def main(args):
 
             moving_path = os.path.join(fly_directory, 'func_0', 'moco', 'functional_channel_1_moc_mean.nii')
             moving_fly = 'func1'
-            moving_resolution = load_res(os.path.join(fly_directory, 'func_0', 'imaging'),'functional.xml')
+            moving_resolution = brainsss.load_res(os.path.join(fly_directory, 'func_0', 'imaging'),'functional.xml')
 
             mimic_path = os.path.join(fly_directory, 'func_0', 'moco', 'functional_channel_2_moc_mean.nii')
             mimic_fly = 'func2'
@@ -528,7 +528,7 @@ def main(args):
 
             fixed_path = os.path.join(fly_directory, 'anat_0', 'moco', 'anatomy_channel_1_moc_mean.nii')
             fixed_fly = 'anat1'
-            fixed_resolution = load_res(os.path.join(fly_directory, 'anat_0', 'imaging'),'anatomical.xml')
+            fixed_resolution = brainsss.load_res(os.path.join(fly_directory, 'anat_0', 'imaging'),'anatomical.xml')
 
             save_directory = os.path.join(fly_directory, 'warp')
             if not os.path.exists(save_directory):
@@ -598,7 +598,7 @@ def main(args):
 
             moving_path = os.path.join(fly_directory, 'anat_0', 'moco', 'anatomy_channel_1_moc_mean_clean.nii')
             moving_fly = 'anat1'
-            moving_resolution = load_res(os.path.join(fly_directory, 'anat_0', 'imaging'),'anatomical.xml')
+            moving_resolution = brainsss.load_res(os.path.join(fly_directory, 'anat_0', 'imaging'),'anatomical.xml')
 
             # for gcamp6f with actual myr-tdtom
             fixed_path = "/oak/stanford/groups/trc/data/Brezovec/2P_Imaging/anat_templates/20220301_luke_2_jfrc_affine_zflip_2umiso.nii"#luke.nii"
