@@ -389,7 +389,7 @@ resolution: [x,y,z] numpy array of resolution (in um) of Bruker scan.
             y = float(child[1].get('value'))
             z = float(child[2].get('value'))
 
-    resolution = np.array([x,y,z]) # resolution in um
+    resolution = (x,y,z) # resolution in um
     print(resolution)
     print('Success.')
 
