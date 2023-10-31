@@ -157,18 +157,28 @@ def main(args):
     ### Save ###
     ############
 
-    # NOT SAVING MIMIC <------ MAY NEED TO CHANGE
+    if mimic_path is not None:
+        if flip_X:
+            save_file_mimic = os.path.join(save_directory, mimic_fly + '_m' + '-to-' + fixed_fly)
+        else:
+            save_file_mimic = os.path.join(save_directory, mimic_fly + '-to-' + fixed_fly)
+            #save_file = os.path.join(save_directory, mimic_fly + '-to-' + fixed_fly + '.nii')
+        #nib.Nifti1Image(mimic_moco.numpy(), np.eye(4)).to_filename(save_file)
+        if low_res:
+            save_file_mimic += '_lowres'
+        save_file_mimic += '.nii'
+        nib.Nifti1Image(mimic_moco['warpedmovout'].numpy(), np.eye(4)).to_filename(save_file_mimic)
+    
     if flip_X:
-        save_file = os.path.join(save_directory, moving_fly + '_m' + '-to-' + fixed_fly)
-        #save_file = os.path.join(save_directory, mimic_fly + '_m' + '-to-' + fixed_fly + '.nii')
+        save_file_moving = os.path.join(save_directory, moving_fly + '_m' + '-to-' + fixed_fly)
     else:
-        save_file = os.path.join(save_directory, moving_fly + '-to-' + fixed_fly)
-        #save_file = os.path.join(save_directory, mimic_fly + '-to-' + fixed_fly + '.nii')
-    #nib.Nifti1Image(mimic_moco.numpy(), np.eye(4)).to_filename(save_file)
+        save_file_moving = os.path.join(save_directory, moving_fly + '-to-' + fixed_fly)
+
     if low_res:
-        save_file += '_lowres'
-    save_file += '.nii'
-    nib.Nifti1Image(moco['warpedmovout'].numpy(), np.eye(4)).to_filename(save_file)
+        save_file_moving += '_lowres'
+
+    save_file_moving += '.nii'
+    nib.Nifti1Image(moco['warpedmovout'].numpy(), np.eye(4)).to_filename(save_file_moving)
 
     # if flip_X:
     #     save_file = os.path.join(save_directory, moving_fly + '_m' + '-to-' + fixed_fly + '.nii')

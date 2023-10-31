@@ -518,18 +518,16 @@ def main(args):
         for fly in fly_dirs:
             fly_directory = os.path.join(dataset_path, fly)
 
-            if loco_dataset:
-                moving_path = os.path.join(fly_directory, 'func_0', 'imaging', 'functional_channel_1_mean.nii')
-            else:
-                moving_path = os.path.join(fly_directory, 'func_0', 'moco', 'functional_channel_1_moc_mean.nii')
-            moving_fly = 'func'
+            moving_path = os.path.join(fly_directory, 'func_0', 'moco', 'functional_channel_1_moc_mean.nii')
+            moving_fly = 'func1'
             moving_resolution = load_res(os.path.join(fly_directory, 'func_0', 'imaging'),'functional.xml')
 
-            if loco_dataset:
-                fixed_path = os.path.join(fly_directory, 'anat_0', 'moco', 'stitched_brain_red_mean.nii')
-            else:
-                fixed_path = os.path.join(fly_directory, 'anat_0', 'moco', 'anatomy_channel_1_moc_mean.nii')
-            fixed_fly = 'anat'
+            mimic_path = os.path.join(fly_directory, 'func_0', 'moco', 'functional_channel_2_moc_mean.nii')
+            mimic_fly = 'func2'
+            mimic_resolution = moving_resolution
+
+            fixed_path = os.path.join(fly_directory, 'anat_0', 'moco', 'anatomy_channel_1_moc_mean.nii')
+            fixed_fly = 'anat1'
             fixed_resolution = load_res(os.path.join(fly_directory, 'anat_0', 'imaging'),'anatomical.xml')
 
             save_directory = os.path.join(fly_directory, 'warp')
@@ -546,6 +544,7 @@ def main(args):
 
             iso_2um_fixed = True
             iso_2um_moving = False
+            iso_2um_mimic = False
 
             grad_step = 0.2
             flow_sigma = 3
@@ -556,18 +555,22 @@ def main(args):
                     'save_directory': save_directory,
                     'fixed_path': fixed_path,
                     'moving_path': moving_path,
+                    'mimic_path': mimic_path,
                     'fixed_fly': fixed_fly,
                     'moving_fly': moving_fly,
+                    'mimic_fly': mimic_fly,
                     'type_of_transform': type_of_transform,
                     'flip_X': flip_X,
                     'flip_Z': flip_Z,
                     'moving_resolution': moving_resolution,
                     'fixed_resolution': fixed_resolution,
+                    'mimic_resolution': mimic_resolution,
                     'save_warp_params': save_warp_params,
                     'low_res': low_res,
                     'very_low_res': very_low_res,
                     'iso_2um_fixed': iso_2um_fixed,
                     'iso_2um_moving': iso_2um_moving,
+                    'iso_2um_mimic': iso_2um_mimic,
                     'grad_step': grad_step,
                     'flow_sigma': flow_sigma,
                     'total_sigma': total_sigma,
@@ -593,11 +596,8 @@ def main(args):
         for fly in fly_dirs:
             fly_directory = os.path.join(dataset_path, fly)
 
-            if loco_dataset:
-                moving_path = os.path.join(fly_directory, 'anat_0', 'moco', 'anat_red_clean.nii')
-            else:
-                moving_path = os.path.join(fly_directory, 'anat_0', 'moco', 'anatomy_channel_1_moc_mean_clean.nii')
-            moving_fly = 'anat'
+            moving_path = os.path.join(fly_directory, 'anat_0', 'moco', 'anatomy_channel_1_moc_mean_clean.nii')
+            moving_fly = 'anat1'
             moving_resolution = load_res(os.path.join(fly_directory, 'anat_0', 'imaging'),'anatomical.xml')
 
             # for gcamp6f with actual myr-tdtom
