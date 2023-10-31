@@ -512,8 +512,8 @@ def main(args):
         ### func2anat ###
         #################
 
-        res_anat = (0.653, 0.653, 1)
-        res_func = (2.611, 2.611, 5)
+        #res_anat = (0.653, 0.653, 1) Luke's hardcoded anatomical res
+        #res_func = (2.611, 2.611, 5) Luke's hardcoded functional res
 
         for fly in fly_dirs:
             fly_directory = os.path.join(dataset_path, fly)
@@ -523,14 +523,14 @@ def main(args):
             else:
                 moving_path = os.path.join(fly_directory, 'func_0', 'moco', 'functional_channel_1_moc_mean.nii')
             moving_fly = 'func'
-            moving_resolution = res_func
+            moving_resolution = load_res(os.path.join(fly_directory, 'func_0', 'imaging'),'functional.xml')
 
             if loco_dataset:
                 fixed_path = os.path.join(fly_directory, 'anat_0', 'moco', 'stitched_brain_red_mean.nii')
             else:
                 fixed_path = os.path.join(fly_directory, 'anat_0', 'moco', 'anatomy_channel_1_moc_mean.nii')
             fixed_fly = 'anat'
-            fixed_resolution = res_anat
+            fixed_resolution = load_res(os.path.join(fly_directory, 'anat_0', 'imaging'),'anatomical.xml')
 
             save_directory = os.path.join(fly_directory, 'warp')
             if not os.path.exists(save_directory):
@@ -587,7 +587,7 @@ def main(args):
         ### anat2mean ###
         #################
         #res_anat = (1.3,1.3,1.3) # new anat res <------------------ this is set !!!!!
-        res_anat = (0.653, 0.653, 1)
+        #res_anat = (0.653, 0.653, 1) Luke's hardcoded anatomical res
         res_meanbrain = (2,2,2)
 
         for fly in fly_dirs:
@@ -598,7 +598,7 @@ def main(args):
             else:
                 moving_path = os.path.join(fly_directory, 'anat_0', 'moco', 'anatomy_channel_1_moc_mean_clean.nii')
             moving_fly = 'anat'
-            moving_resolution = res_anat
+            moving_resolution = load_res(os.path.join(fly_directory, 'anat_0', 'imaging'),'anatomical.xml')
 
             # for gcamp6f with actual myr-tdtom
             fixed_path = "/oak/stanford/groups/trc/data/Brezovec/2P_Imaging/anat_templates/20220301_luke_2_jfrc_affine_zflip_2umiso.nii"#luke.nii"

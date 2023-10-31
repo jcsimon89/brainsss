@@ -365,6 +365,36 @@ def load_timestamps(directory, file='functional.xml'):
     print('Success.')
     return timestamps
 
+def load_res(directory, file):
+    """ Parses a Bruker xml file to get the resolution of each scan
+
+Parameters
+----------
+directory: full directory that contains xml file (str).
+file: Defaults to 'functional.xml'
+
+Returns
+-------
+resolution: [x,y,z] numpy array of resolution (in um) of Bruker scan.
+
+"""
+    xml_file = os.path.join(directory, file)
+    tree = ET.parse(xml_file)
+    root = tree.getroot()
+    PVState = root[1]
+
+    for child in PVState:
+        if child.attrib.get('key') == 'micronsPerPixel':
+            x = float(child[0].get('value'))
+            y = float(child[1].get('value'))
+            z = float(child[2].get('value'))
+
+    resolution = np.array([x,y,z]) # resolution in um
+    print(resolution)
+    print('Success.')
+
+    return resolution
+
 def print_big_header(logfile, message, width):
     printlog = getattr(Printlog(logfile=logfile), 'print_to_log')
     message_and_space = '   ' + message.upper() + '   '
