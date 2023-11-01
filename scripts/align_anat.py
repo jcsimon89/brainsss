@@ -167,6 +167,9 @@ def main(args):
         if low_res:
             save_file_mimic += '_lowres'
         save_file_mimic += '.nii'
+        a = mimic_moco['warpedmovout'].numpy()
+        print(type(a))
+        print(a.shape)
         nib.Nifti1Image(mimic_moco['warpedmovout'].numpy(), np.eye(4)).to_filename(save_file_mimic)
     
     if flip_X:
