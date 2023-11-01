@@ -346,14 +346,14 @@ def main(args):
             # else:
             #     dur = 96
             #     mem = 4
-            global_resources = True
+            #global_resources = True
             dur = 48
             mem = 8
             job_id = brainsss.sbatch(jobname='moco',
                                  script=os.path.join(scripts_path, script),
                                  modules=modules,
                                  args=args,
-                                 logfile=logfile, time=dur, mem=mem, nice=nice, nodes=nodes, global_resources=global_resources)
+                                 logfile=logfile, time=dur, mem=mem, nice=nice, nodes=nodes)#, global_resources=global_resources)
         ### currently submitting these jobs simultaneously since using global resources
         brainsss.wait_for_job(job_id, logfile, com_path)
 
