@@ -47,12 +47,13 @@ def main(args):
     ###########################
     ### Organize Transforms ###
     ###########################
+    
     affine_file = os.listdir(os.path.join(save_directory, 'func-to-anat_fwdtransforms_2umiso'))[0]
     affine_path = os.path.join(save_directory, 'func-to-anat_fwdtransforms_2umiso', affine_file)
 
 
-    warp_dir = 'anat-to-non_myr_mean_fwdtransforms_2umiso'
-    #warp_dir = 'anat-to-meanbrain_fwdtransforms_2umiso'
+    #warp_dir = 'anat-to-non_myr_mean_fwdtransforms_2umiso'
+    warp_dir = 'anat-to-meanbrain_fwdtransforms_2umiso'
     syn_files = os.listdir(os.path.join(save_directory, warp_dir))
     syn_linear_path = os.path.join(save_directory, warp_dir, [x for x in syn_files if '.mat' in x][0])
     syn_nonlinear_path = os.path.join(save_directory, warp_dir, [x for x in syn_files if '.nii.gz' in x][0])
