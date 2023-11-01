@@ -1,7 +1,7 @@
 #!/bin/bash
 #SBATCH --job-name=moco
 #SBATCH --partition=trc
-#SBATCH --time=8-00:00:00
+#SBATCH --time=4-00:00:00
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=8
 #SBATCH --output=./logs/mainlog.out
