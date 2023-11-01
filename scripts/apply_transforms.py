@@ -68,7 +68,7 @@ def main(args):
     ############
     ### Save ###
     ############
-    save_file = os.path.join(save_directory, moving_fly + '-applied-' + fixed_fly + '.nii')
+    save_file = os.path.join(save_directory, moving_fly + '-applied-' + fixed_fly + '_2.nii')
     nib.Nifti1Image(moco.numpy(), np.eye(4)).to_filename(save_file)
 
 def sec_to_hms(t):
