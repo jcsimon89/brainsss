@@ -167,11 +167,7 @@ def main(args):
         if low_res:
             save_file_mimic += '_lowres'
         save_file_mimic += '.nii'
-        print(type(mimic_moco))
-        print(mimic_moco)
-        print(type(moco))
-        print(moco)
-        nib.Nifti1Image(mimic_moco['warpedmovout'].numpy(), np.eye(4)).to_filename(save_file_mimic)
+        nib.Nifti1Image(mimic_moco.numpy(), np.eye(4)).to_filename(save_file_mimic)
     
     if flip_X:
         save_file_moving = os.path.join(save_directory, moving_fly + '_m' + '-to-' + fixed_fly)
