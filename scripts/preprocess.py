@@ -601,12 +601,12 @@ def main(args):
             moving_resolution = brainsss.load_res(os.path.join(fly_directory, 'anat_0', 'imaging'),'anatomical.xml')
 
             # for gcamp6f with actual myr-tdtom
-            fixed_path = "/oak/stanford/groups/trc/data/Brezovec/2P_Imaging/anat_templates/20220301_luke_2_jfrc_affine_zflip_2umiso.nii"#luke.nii"
-            fixed_fly = 'meanbrain'
+            #fixed_path = "/oak/stanford/groups/trc/data/Brezovec/2P_Imaging/anat_templates/20220301_luke_2_jfrc_affine_zflip_2umiso.nii"#luke.nii"
+            #fixed_fly = 'meanbrain'
 
             # for gcamp8s with non-myr-tdtom
-            #fixed_path = "/oak/stanford/groups/trc/data/Brezovec/2P_Imaging/20220421_make_nonmyr_meanbrain/non_myr_2_fdaatlas_40_8.nii"
-            #fixed_fly = 'non_myr_mean'
+            fixed_path = "/oak/stanford/groups/trc/data/Brezovec/2P_Imaging/20220421_make_nonmyr_meanbrain/non_myr_2_fdaatlas_40_8.nii"
+            fixed_fly = 'non_myr_mean'
 
             fixed_resolution = res_meanbrain
 
@@ -664,25 +664,24 @@ def main(args):
         ########################
         ### Apply transforms ###
         ########################
-        res_func = (2.611, 2.611, 5)
+        #res_func = (2.611, 2.611, 5) old hardcoded values
         res_anat = (2,2,2)#(0.38, 0.38, 0.38)
         final_2um_iso = False #already 2iso so don't need to downsample
 
         for fly in fly_dirs:
             fly_directory = os.path.join(dataset_path, fly)
-
+            res_func = brainsss.load_res(os.path.join(fly_directory, 'func_0', 'imaging'),'functional.xml')
             behaviors = ['dRotLabY', 'dRotLabZneg', 'dRotLabZpos']
             for behavior in behaviors:
-                if loco_dataset:
-                    moving_path = os.path.join(fly_directory, 'func_0', 'corr', '20220418_corr_{}.nii'.format(behavior))
-                else:
-                    moving_path = os.path.join(fly_directory, 'func_0', 'corr', '20220420_corr_{}.nii'.format(behavior))
+                moving_path = os.path.join(fly_directory, 'func_0', 'corr', '20220420_corr_{}.nii'.format(behavior))
                 moving_fly = 'corr_{}'.format(behavior)
                 moving_resolution = res_func
 
                 #fixed_path = "/oak/stanford/groups/trc/data/Brezovec/2P_Imaging/anat_templates/luke.nii"
-                fixed_path = "/oak/stanford/groups/trc/data/Brezovec/2P_Imaging/anat_templates/20220301_luke_2_jfrc_affine_zflip_2umiso.nii"#luke.nii"
-                fixed_fly = 'meanbrain'
+                #fixed_path = "/oak/stanford/groups/trc/data/Brezovec/2P_Imaging/anat_templates/20220301_luke_2_jfrc_affine_zflip_2umiso.nii"#luke.nii"
+                #fixed_fly = 'meanbrain'
+                fixed_path = "/oak/stanford/groups/trc/data/Brezovec/2P_Imaging/20220421_make_nonmyr_meanbrain/non_myr_2_fdaatlas_40_8.nii"
+                fixed_fly = 'non_myr_mean'
                 fixed_resolution = res_anat
 
                 save_directory = os.path.join(fly_directory, 'warp')
