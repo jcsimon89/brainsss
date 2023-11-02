@@ -306,7 +306,7 @@ def main(args):
             if dirtype == 'func':
                 files = ['functional_channel_1.nii', 'functional_channel_2.nii']
             if dirtype == 'anat':
-                files = ['anatomy_channel_1.nii', 'anatomy_channel_2.nii']
+                files = ['anatomical_channel_1.nii', 'anatomical_channel_2.nii']
 
             args = {'logfile': logfile, 'directory': directory, 'files': files}
             script = 'make_mean_brain.py'
@@ -330,8 +330,8 @@ def main(args):
                 brain_master = 'functional_channel_2.nii'
                 brain_mirror = 'functional_channel_1.nii'
             if dirtype == 'anat':
-                brain_master = 'anatomy_channel_2.nii'
-                brain_mirror = 'anatomy_channel_1.nii'
+                brain_master = 'anatomical_channel_2.nii'
+                brain_mirror = 'anatomical_channel_1.nii'
 
             args = {'logfile': logfile,
                     'directory': directory,
@@ -478,7 +478,7 @@ def main(args):
             if dirtype == 'func':
                 files = ['functional_channel_1_moco.h5', 'functional_channel_2_moco.h5']
             if dirtype == 'anat':
-                files = ['anatomy_channel_1_moco.h5', 'anatomy_channel_2_moco.h5']
+                files = ['anatomical_channel_1_moco.h5', 'anatomical_channel_2_moco.h5']
 
             args = {'logfile': logfile, 'directory': directory, 'files': files}
             script = 'make_mean_brain.py'
@@ -486,7 +486,7 @@ def main(args):
                                  script=os.path.join(scripts_path, script),
                                  modules=modules,
                                  args=args,
-                                 logfile=logfile, time=3, mem=12, nice=nice, nodes=nodes, global_resources=True)
+                                 logfile=logfile, time=6, mem=16, nice=nice, nodes=nodes)#, global_resources=True)
         brainsss.wait_for_job(job_id, logfile, com_path)
 
     if clean_anat:
@@ -526,7 +526,7 @@ def main(args):
             mimic_fly = 'func2'
             mimic_resolution = moving_resolution
 
-            fixed_path = os.path.join(fly_directory, 'anat_0', 'moco', 'anatomy_channel_1_moc_mean.nii')
+            fixed_path = os.path.join(fly_directory, 'anat_0', 'moco', 'anatomical_channel_1_moc_mean.nii')
             fixed_fly = 'anat1'
             fixed_resolution = brainsss.load_res(os.path.join(fly_directory, 'anat_0', 'imaging'),'anatomical.xml')
 
@@ -596,7 +596,7 @@ def main(args):
         for fly in fly_dirs:
             fly_directory = os.path.join(dataset_path, fly)
 
-            moving_path = os.path.join(fly_directory, 'anat_0', 'moco', 'anatomy_channel_1_moc_mean_clean.nii')
+            moving_path = os.path.join(fly_directory, 'anat_0', 'moco', 'anatomical_channel_1_moc_mean_clean.nii')
             moving_fly = 'anat1'
             moving_resolution = brainsss.load_res(os.path.join(fly_directory, 'anat_0', 'imaging'),'anatomical.xml')
 
