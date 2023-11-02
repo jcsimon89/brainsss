@@ -671,9 +671,9 @@ def main(args):
         for fly in fly_dirs:
             fly_directory = os.path.join(dataset_path, fly)
             res_func = brainsss.load_res(os.path.join(fly_directory, 'func_0', 'imaging'),'functional.xml')
-            behaviors = ['dRotLabY', 'dRotLabZneg', 'dRotLabZpos']
+            behaviors = ['tot_velocity','fwd_velocity', 'tan_velocity']
             for behavior in behaviors:
-                moving_path = os.path.join(fly_directory, 'func_0', 'corr', '20220420_corr_{}_2.nii'.format(behavior))
+                moving_path = os.path.join(fly_directory, 'func_0', 'corr', 'ch1_corr_{}.nii'.format(behavior))
                 moving_fly = 'corr_{}'.format(behavior)
                 moving_resolution = res_func
 
