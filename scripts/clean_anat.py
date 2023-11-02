@@ -22,7 +22,7 @@ def main(args):
         file = os.path.join(directory, 'stitched_brain_red_mean.nii') 
         brain = np.asarray(nib.load(file).get_data(), dtype='float32')
     except:
-        file = os.path.join(directory, 'anatomy_channel_1_moc_mean.nii') 
+        file = os.path.join(directory, 'anatomical_channel_1_moc_mean.nii') 
         brain = np.asarray(nib.load(file).get_data(), dtype='float32')
 
     ### Blur brain and mask small values ###
