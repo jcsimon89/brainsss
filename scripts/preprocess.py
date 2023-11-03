@@ -377,6 +377,17 @@ def main(args):
                                  logfile=logfile, time=4, mem=4, nice=nice, nodes=nodes)
             brainsss.wait_for_job(job_id, logfile, com_path)
 
+            brain_file = 'functional_channel_2_moco.h5'
+
+            args = {'logfile': logfile, 'load_directory': load_directory, 'save_directory': save_directory, 'brain_file': brain_file}
+            script = 'zscore.py'
+            job_id = brainsss.sbatch(jobname='zscore',
+                                 script=os.path.join(scripts_path, script),
+                                 modules=modules,
+                                 args=args,
+                                 logfile=logfile, time=4, mem=4, nice=nice, nodes=nodes)
+            brainsss.wait_for_job(job_id, logfile, com_path)
+
     if highpass:
 
         ################
@@ -387,6 +398,19 @@ def main(args):
             load_directory = os.path.join(func)
             save_directory = os.path.join(func)
             brain_file = 'functional_channel_1_moco_zscore.h5'
+
+            args = {'logfile': logfile, 'load_directory': load_directory, 'save_directory': save_directory, 'brain_file': brain_file}
+            script = 'temporal_high_pass_filter.py'
+            job_id = brainsss.sbatch(jobname='highpass',
+                                 script=os.path.join(scripts_path, script),
+                                 modules=modules,
+                                 args=args,
+                                 logfile=logfile, time=4, mem=4, nice=nice, nodes=nodes)
+            brainsss.wait_for_job(job_id, logfile, com_path)
+
+            load_directory = os.path.join(func)
+            save_directory = os.path.join(func)
+            brain_file = 'functional_channel_2_moco_zscore.h5'
 
             args = {'logfile': logfile, 'load_directory': load_directory, 'save_directory': save_directory, 'brain_file': brain_file}
             script = 'temporal_high_pass_filter.py'
