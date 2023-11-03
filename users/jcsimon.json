@@ -1,7 +1,7 @@
 {
     "imports_path": "/oak/stanford/groups/trc/data/Jacob/ImagingData/Bruker/brainsss_imports",
     "dataset_path": "/oak/stanford/groups/trc/data/Jacob/ImagingData/Bruker/brainsss/wb_gcamp8s_rcgull",
-    "fictrac_qc": "True",
+    "fictrac_qc": "",
     "stim_triggered_beh": "",
     "bleaching_qc": "True",
     "temporal_mean_brain_pre": "True",
@@ -11,9 +11,9 @@
     "highpass": "True",
     "correlation": "",
     "STA": "",
-    "h5_to_nii": "True",
-    "clean_anat": "True",
-    "func2anat": "True",
-    "anat2atlas": "True",
-    "apply_transforms": "True"
+    "h5_to_nii": "",
+    "clean_anat": "",
+    "func2anat": "",
+    "anat2atlas": "",
+    "apply_transforms": ""
 }
