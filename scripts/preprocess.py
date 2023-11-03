@@ -478,8 +478,8 @@ def main(args):
             if dirtype == 'func':
                 files = ['functional_channel_1_moco.h5', 'functional_channel_2_moco.h5']
             if dirtype == 'anat':
-                files = ['anatomical_channel_1_moco.h5', 'anatomical_channel_2_moco.h5']
-
+                #files = ['anatomical_channel_1_moco.h5', 'anatomical_channel_2_moco.h5']
+                files = ['anatomical_channel_2_moco.h5']
             args = {'logfile': logfile, 'directory': directory, 'files': files}
             script = 'make_mean_brain.py'
             job_id = brainsss.sbatch(jobname='meanbrn',
