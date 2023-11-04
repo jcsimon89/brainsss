@@ -702,10 +702,10 @@ def main(args):
                 moving_resolution = res_func
 
                 #fixed_path = "/oak/stanford/groups/trc/data/Brezovec/2P_Imaging/anat_templates/luke.nii"
-                #fixed_path = "/oak/stanford/groups/trc/data/Brezovec/2P_Imaging/anat_templates/20220301_luke_2_jfrc_affine_zflip_2umiso.nii"#luke.nii"
-                #fixed_fly = 'meanbrain'
-                fixed_path = "/oak/stanford/groups/trc/data/Brezovec/2P_Imaging/20220421_make_nonmyr_meanbrain/non_myr_2_fdaatlas_40_8.nii"
-                fixed_fly = 'non_myr_mean'
+                fixed_path = "/oak/stanford/groups/trc/data/Brezovec/2P_Imaging/anat_templates/20220301_luke_2_jfrc_affine_zflip_2umiso.nii"#luke.nii"
+                fixed_fly = 'meanbrain'
+                #fixed_path = "/oak/stanford/groups/trc/data/Brezovec/2P_Imaging/20220421_make_nonmyr_meanbrain/non_myr_2_fdaatlas_40_8.nii"
+                #fixed_fly = 'non_myr_mean'
                 fixed_resolution = res_anat
 
                 save_directory = os.path.join(fly_directory, 'warp')
