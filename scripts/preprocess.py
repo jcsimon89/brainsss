@@ -697,7 +697,7 @@ def main(args):
             res_func = brainsss.load_res(os.path.join(fly_directory, 'func_0', 'imaging'),'functional.xml')
             behaviors = ['tot_velocity','fwd_velocity', 'tan_velocity']
             for behavior in behaviors:
-                moving_path = os.path.join(fly_directory, 'func_0', 'corr', 'ch2_corr_{}.nii'.format(behavior))
+                moving_path = os.path.join(fly_directory, 'func_0', 'corr', 'ch1_corr_{}.nii'.format(behavior))
                 moving_fly = 'corr_{}'.format(behavior)
                 moving_resolution = res_func
 
