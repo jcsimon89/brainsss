@@ -90,8 +90,8 @@ def main(args):
 			scantype = 'anat'
 			stepsize = 5
 		else:
-			scantype = 'func'
-			stepsize = 100
+			scantype = 'anat'
+			stepsize = 5
 			printlog(F"{'   Could not determine scantype. Using default stepsize of 100   ':*^{width}}")
 	printlog(F"Scantype{scantype:.>{width-8}}")
 	printlog(F"Stepsize{stepsize:.>{width-8}}")
