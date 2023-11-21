@@ -92,7 +92,7 @@ def main(args):
 		else:
 			scantype = 'anat'
 			stepsize = 5
-			printlog(F"{'   Could not determine scantype. Using default stepsize of 100   ':*^{width}}")
+			printlog(F"{'   Could not determine scantype. Using default stepsize of 5   ':*^{width}}")
 	printlog(F"Scantype{scantype:.>{width-8}}")
 	printlog(F"Stepsize{stepsize:.>{width-8}}")
 
