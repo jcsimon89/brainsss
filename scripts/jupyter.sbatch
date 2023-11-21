@@ -17,4 +17,4 @@ source $HOME/venvs/brainsss/bin/activate
 
 cd
 
-jupyter lab --ip=0.0.0.0 --port=8888
+jupyter --ip=0.0.0.0 --port=8888
