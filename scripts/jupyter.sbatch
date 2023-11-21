@@ -13,7 +13,7 @@ cat /etc/hosts | grep $(hostname)
 
 ml python/3.6.1
 ml py-ants/0.3.2_py36
-source brainsss/bin/activate
+source venvs/brainsss/bin/activate
 
 cd
 
