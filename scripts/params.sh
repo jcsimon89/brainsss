@@ -1,0 +1,6 @@
+USERNAME="jcsimon"
+PORT="8888"
+PARTITION="trc"
+BROWSER="/usr/bin/firefox"
+MEM="64G"
+TIME="8:00:00"
