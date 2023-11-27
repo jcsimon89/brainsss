@@ -11,6 +11,7 @@
 
 cat /etc/hosts | grep $(hostname)
 
+ml load py-jupyter/1.0.0_py36
 ml python/3.6.1
 ml py-ants/0.3.2_py36
 source $HOME/venvs/brainsss/bin/activate
