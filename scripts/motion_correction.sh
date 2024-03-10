@@ -1,6 +1,7 @@
 #!/bin/bash
 #SBATCH --job-name=moco
-#SBATCH --time=2-00:00:00
+#SBATCH --partition=trc
+#SBATCH --time=1-00:00:00
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=8
 #SBATCH --output=./logs/mainlog.out
@@ -18,7 +19,7 @@ echo $brain_mirror
 
 # Optional params
 type_of_transform=${4:-"SyN"}
-output_format=${5:-"h5"}
+output_format=${5:-"nii"}
 echo $type_of_transform
 echo $output_format
 
