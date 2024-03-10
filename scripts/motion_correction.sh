@@ -19,7 +19,8 @@ echo $brain_mirror
 
 # Optional params
 type_of_transform=${4:-"SyN"}
-output_format=${5:-"nii"}
+#output_format=${5:-"nii"}
+output_format="nii"
 echo $type_of_transform
 echo $output_format
 
