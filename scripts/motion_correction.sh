@@ -26,6 +26,5 @@ echo $output_format
 args="{\"directory\":\"$directory\",\"brain_master\":\"$brain_master\",\"brain_mirror\":\"$brain_mirror\","\
 "\"type_of_transform\":\"$type_of_transform\",\"output_format\":\"$output_format\"}"
 
-# ml python/3.6 antspy/0.2.2
-
+source ~/venvs/brainsss/bin/activate
 python3 -u ./motion_correction.py $args
