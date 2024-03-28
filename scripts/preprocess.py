@@ -550,8 +550,8 @@ def main(args):
             mimic_fly = 'func1'
             mimic_resolution = moving_resolution
 
-            fixed_path = os.path.join(fly_directory, 'anat_0', 'moco', 'anatomical_channel_2_moc_mean.nii')
-            fixed_fly = 'anat2'
+            fixed_path = os.path.join(fly_directory, 'anat_0', 'moco', 'anatomical_channel_1_moc_mean.nii')
+            fixed_fly = 'anat1'
             fixed_resolution = brainsss.load_res(os.path.join(fly_directory, 'anat_0', 'imaging'),'anatomical.xml')
 
             save_directory = os.path.join(fly_directory, 'warp')
@@ -620,17 +620,17 @@ def main(args):
         for fly in fly_dirs:
             fly_directory = os.path.join(dataset_path, fly)
 
-            moving_path = os.path.join(fly_directory, 'anat_0', 'moco', 'anatomical_channel_2_moc_mean_clean.nii')
-            moving_fly = 'anat2'
+            moving_path = os.path.join(fly_directory, 'anat_0', 'moco', 'anatomical_channel_1_moc_mean_clean.nii')
+            moving_fly = 'anat1'
             moving_resolution = brainsss.load_res(os.path.join(fly_directory, 'anat_0', 'imaging'),'anatomical.xml')
 
             # for gcamp6f with actual myr-tdtom
-            fixed_path = "/oak/stanford/groups/trc/data/Brezovec/2P_Imaging/anat_templates/20220301_luke_2_jfrc_affine_zflip_2umiso.nii"#luke.nii"
-            fixed_fly = 'meanbrain'
+            #fixed_path = "/oak/stanford/groups/trc/data/Brezovec/2P_Imaging/anat_templates/20220301_luke_2_jfrc_affine_zflip_2umiso.nii"#luke.nii"
+            #fixed_fly = 'meanbrain'
 
             # for gcamp8s with non-myr-tdtom
-            #fixed_path = "/oak/stanford/groups/trc/data/Brezovec/2P_Imaging/20220421_make_nonmyr_meanbrain/non_myr_2_fdaatlas_40_8.nii"
-            #fixed_fly = 'non_myr_mean'
+            fixed_path = "/oak/stanford/groups/trc/data/Brezovec/2P_Imaging/20220421_make_nonmyr_meanbrain/non_myr_2_fdaatlas_40_8.nii"
+            fixed_fly = 'non_myr_mean'
 
             fixed_resolution = res_meanbrain
 
