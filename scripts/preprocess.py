@@ -500,7 +500,7 @@ def main(args):
             directory = os.path.join(funcanat, 'moco')
 
             if dirtype == 'func':
-                files = ['functional_channel_1_moco.h5', 'functional_channel_2_moco.nii']
+                files = ['functional_channel_1_moco.h5', 'functional_channel_2_moco.h5']
             if dirtype == 'anat':
                 #files = ['anatomical_channel_1_moco.h5', 'anatomical_channel_2_moco.h5']
                 files = ['anatomical_channel_1_moco.h5']
