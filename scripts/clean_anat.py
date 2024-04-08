@@ -29,8 +29,8 @@ def main(args):
     brain_copy = brain.copy().astype('float32')
     brain_copy = scipy.ndimage.filters.gaussian_filter(brain_copy, sigma=10)
     threshold = triangle(brain_copy)
-    brain_copy[np.where(brain_copy < threshold/2)] = 0
-
+    #brain_copy[np.where(brain_copy < threshold/2] = 0 [original setting]
+    brain_copy[np.where(brain_copy < threshold] = 0
     ### Remove blobs outside contiguous brain ###
     labels, label_nb = scipy.ndimage.label(brain_copy)
     brain_label = np.bincount(labels.flatten())[1:].argmax()+1
