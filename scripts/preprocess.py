@@ -542,11 +542,11 @@ def main(args):
         for fly in fly_dirs:
             fly_directory = os.path.join(dataset_path, fly)
 
-            moving_path = os.path.join(fly_directory, 'func_0', 'moco', 'functional_channel_2_moc_mean.nii')
+            moving_path = os.path.join(fly_directory, 'func_0', 'moco', 'functional_channel_1_moc_mean.nii')
             moving_fly = 'func2'
             moving_resolution = brainsss.load_res(os.path.join(fly_directory, 'func_0', 'imaging'),'functional.xml')
 
-            mimic_path = os.path.join(fly_directory, 'func_0', 'moco', 'functional_channel_1_moc_mean.nii')
+            mimic_path = os.path.join(fly_directory, 'func_0', 'moco', 'functional_channel_2_moc_mean.nii')
             mimic_fly = 'func1'
             mimic_resolution = moving_resolution
 
