@@ -31,7 +31,7 @@ def main(args):
                 brain = np.asarray(nib.load(full_path).get_data(), dtype='float32')
             elif full_path.endswith('.h5'):
                 with h5py.File(full_path, 'r') as hf:
-                    brain = np.asarray(hf['data'][:], dtype='uint16')
+                    brain = np.asarray(hf['data'][:], dtype='float32')
 
             if meanbrain_n_frames is not None:
                 # average over first meanbrain_n_frames frames
