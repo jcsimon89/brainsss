@@ -28,21 +28,21 @@ def main(args):
             ### make mean ###
             full_path = os.path.join(directory, file)
             if full_path.endswith('.nii'):
-                brain = np.asarray(nib.load(full_path).get_data(), dtype='uint16')
+                brain = np.asarray(nib.load(full_path).get_data(), dtype='float32')
             elif full_path.endswith('.h5'):
                 with h5py.File(full_path, 'r') as hf:
                     brain = np.asarray(hf['data'][:], dtype='uint16')
 
             if meanbrain_n_frames is not None:
                 # average over first meanbrain_n_frames frames
-                meanbrain = np.mean(brain[...,:int(meanbrain_n_frames)], axis=-1)
+                meanbrain = np.mean(brain[...,:int(meanbrain_n_frames)].astype('float32'), axis=-1)
             else: # average over all frames
                 meanbrain = np.mean(brain, axis=-1)
 
             ### Save ###
             save_file = os.path.join(directory, file[:-4] + '_mean.nii')
             aff = np.eye(4)
-            img = nib.Nifti1Image(meanbrain, aff)
+            img = nib.Nifti1Image(meanbrain.astype('float32'), aff)
             img.to_filename(save_file)
 
             fly_func_str = ('|').join(directory.split('/')[-3:-1])
