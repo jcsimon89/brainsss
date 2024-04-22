@@ -143,7 +143,7 @@ def main(args):
 
 	existing_meanbrain_path = os.path.join(dataset_path, existing_meanbrain_file)
 	if os.path.exists(existing_meanbrain_path):
-		meanbrain = np.asarray(nib.load(existing_meanbrain_path).get_data(), dtype='uint16')
+		meanbrain = np.asarray(nib.load(existing_meanbrain_path).get_data(), dtype='float32')
 		fixed = ants.from_numpy(np.asarray(meanbrain, dtype='float32'))
 		printlog(F"Loaded meanbrain{existing_meanbrain_file:.>{width-16}}")
 
@@ -419,7 +419,7 @@ def sec_to_hms(t):
 def h5_to_nii(h5_path):
 	nii_savefile = h5_path.split('.')[0] + '.nii'
 	with h5py.File(h5_path, 'r+') as h5_file:
-		image_array = h5_file.get("data")[:].astype('uint16')
+		image_array = h5_file.get("data")[:].astype('float32')
 
 	nifti1_limit = (2**16 / 2)
 	if np.any(np.array(image_array.shape) >= nifti1_limit):  # Need to save as nifti2
