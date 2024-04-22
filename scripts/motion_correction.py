@@ -275,7 +275,7 @@ def main(args):
 			elif elapsed_time < 30*60:
 				print_frequency = 5*60
 			else:
-				print_frequency = 60*60
+				print_frequency = 10*60
 			if time() - print_timer > print_frequency:
 				print_timer = time()
 				print_progress_table(total_vol=brain_dims[-1], complete_vol=index, printlog=printlog, start_time=start_time, width=width)
