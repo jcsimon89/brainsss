@@ -42,7 +42,7 @@ def main(args):
 	try:
 		logfile = args['logfile']
 		printlog = getattr(brainsss.Printlog(logfile=logfile), 'print_to_log')
-		save_type = 'parent_dir'
+		save_type = 'curr_dir'
 	except:
 		# no logfile provided; create one
 		# this will be the case if this script was directly run from a .sh file
